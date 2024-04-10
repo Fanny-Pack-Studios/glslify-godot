@@ -42,5 +42,6 @@ func _on_file_changed(file_path):
 	file.store_string(header + text)
 	file.close()
 
-	get_editor_interface().get_resource_filesystem().update_file(target_path)
+	var shader = ResourceLoader.load(target_path)
+	shader.emit_changed()
 
